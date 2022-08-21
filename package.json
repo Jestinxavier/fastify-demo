@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^3.24.1"
+    "fastify": "^3.24.1",
+    "fastify-cors": "^6.1.0",
+    "fastify-multer": "^2.0.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3",
+    "sqlite3": "^5.0.11"
   }
 }
