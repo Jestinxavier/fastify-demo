@@ -18,9 +18,21 @@ const getAllItems =   async (request, reply) => {
 const example = async (request, reply)=> {
   let firstName = request.body.name
   let lastName = request.body.lastname
-  console.log(request.body.name);
-  await name(firstName,lastName)
-  reply.send([{ id: 1,Name: 'Jestin', DOB: "17-06-1998", Age: "23" },{ id: 2,Name: 'Jaimy', DOB: "17-04-2000", Age: "21" },{ id: 2,Name: 'Joyal', DOB: "16-04-2000", Age: "21" }])
+  let filename = request.body.file
+  console.log(filename,"********");
+ let result = await name(firstName,lastName)
+ if(result){
+
+   reply.send({
+    msg: `The name ${firstName} and ${lastName} is created`,
+    status : 1,
+   })
+ }else{
+  reply.send({
+    msg: `The name ${firstName} and ${lastName} is not created `,
+    status : 0,
+   })
+ }
 }
 
   module.exports = {getAllItems, example, samplePostControl, samplePostControlList, sampleGETControlList, sampleGetControlListArrayobj}; 

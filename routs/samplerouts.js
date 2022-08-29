@@ -1,6 +1,9 @@
-
-const {sampleGetControlListArrayobj,getAllItems, samplePostControl,samplePostControlList, sampleGETControlList} = require("../controller/samplecontroller");
-  
+const multer = require('fastify-multer')
+const {sampleGetControlListArrayobj,getAllItems,example, samplePostControl,samplePostControlList, sampleGETControlList} = require("../controller/samplecontroller");
+const upload = multer({ dest: 'uploads/' })
+const fileUploaded = function(request, reply) {
+  console.log("file has been uplaoded",request.file );
+};
 const routes =[
     {
         method: 'GET',
@@ -29,6 +32,14 @@ const routes =[
         method: 'GET',
         url: '/emp2',
         handler: sampleGetControlListArrayobj
+
+      },
+      {
+        method: 'POST',
+        url: '/example',
+        preHandler:upload.any(),
+        handler: example,
+       
 
       }
       

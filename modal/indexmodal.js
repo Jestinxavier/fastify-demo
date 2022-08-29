@@ -12,9 +12,9 @@ const User = sequelize.define('User', {
 });
 
 // `sequelize.define` also returns the model
-async function  name(){
-  await User.create({ firstName: "Jane", lastName: "Doe" });
-    console.log(User === sequelize.models.User); // true
+async function  name(firstName,lastName){
+  await User.create({ firstName: firstName, lastName: lastName });
+   return true
 }
 
 module.exports = {name,User}
